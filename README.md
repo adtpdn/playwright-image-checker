@@ -4,227 +4,40 @@
 
 This report provides an overview of the image availability status across specified URLs, as checked by our automated Playwright Image Checker tool. The check was performed using Chrome, Firefox, and WebKit (Safari) browsers to ensure cross-browser compatibility.
 
-**Report Generation Date:** 2024-12-03 13:38:49 GMT+8
+**Report Generation Date:** 2024-12-03 15:11:45 GMT+8
 
 ## Status Overview
 
 | URL | Chrome Status | Firefox Status | WebKit Status |
 |-----|---------------|----------------|---------------|
-| https://adenenergies.com | OK | Missing Images | Missing Images |
-| https://adenenergies.com/about | OK | Missing Images | Missing Images |
-| https://adenenergies.com/contact | OK | OK | OK |
-| https://adenenergies.com/media | OK | OK | OK |
-| https://adenenergies.com/solutions | OK | Missing Images | Missing Images |
-| https://adenenergies.com/zh | OK | Missing Images | Missing Images |
-| https://adenenergies.com/zh/about | OK | Missing Images | Missing Images |
-| https://adenenergies.com/zh/contact | OK | OK | OK |
-| https://adenenergies.com/zh/media | OK | OK | OK |
-| https://adenenergies.com/zh/solutions | OK | Missing Images | Missing Images |
-| https://adengroup.com | OK | OK | OK |
-| https://adengroup.com/about-us | OK | OK | OK |
-| https://adengroup.com/careers | OK | Missing Images | OK |
-| https://adengroup.com/contact | OK | OK | OK |
-| https://adengroup.com/media | OK | OK | OK |
-| https://adengroup.com/cn | OK | OK | OK |
-| https://adengroup.com/cn/about-us | OK | OK | OK |
-| https://adengroup.com/cn/careers | OK | Missing Images | OK |
-| https://adengroup.com/cn/contact | OK | OK | OK |
-| https://adengroup.com/cn/media | OK | OK | OK |
-| https://nx-park.com | OK | OK | OK |
+| https://www.adengroup.com | OK | OK | OK |
+| https://www.adenenergies.com | OK | OK | OK |
+| https://www.nx-park.com | OK | OK | OK |
+| https://the-internet.herokuapp.com/broken_images | Missing Images | Missing Images | Missing Images |
 
 ## Detailed Findings
 
 Below is a comprehensive breakdown of the results, including specific details on any missing images:
 
-### https://adenenergies.com
+### https://the-internet.herokuapp.com/broken_images
+
+#### Chrome
+
+Missing images:
+- No alt text (asdf.jpg)
+- No alt text (hjkl.jpg)
 
 #### Firefox
 
 Missing images:
-- data1.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data1.svg)
-- data2.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data2.svg)
-- data3.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data3.svg)
-- data4.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data4.svg)
-- data1.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data1.svg)
-- data2.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data2.svg)
-- data3.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data3.svg)
-- data4.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data4.svg)
-- jhonson-controls.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/jhonson-controls.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- SAM_3358-2-1536x882-1.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/SAM_3358-2-1536x882-1.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- Geely.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Geely.png)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- jhonson-controls.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/jhonson-controls.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- SAM_3358-2-1536x882-1.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/SAM_3358-2-1536x882-1.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
+- No alt text (asdf.jpg)
+- No alt text (hjkl.jpg)
 
 #### WebKit (Safari)
 
 Missing images:
-- SAM_3358-2-1536x882-1.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/SAM_3358-2-1536x882-1.webp)
-- jhonson-controls.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/jhonson-controls.webp)
-
-### https://adenenergies.com/about
-
-#### Firefox
-
-Missing images:
-- image_03_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_03_commitment.webp)
-- image_05_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_05_commitment.webp)
-- image_04_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_04_commitment.webp)
-- image_01_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_01_commitment.webp)
-- img-data-solutions.png (https://adenenergies.com/wp-content/uploads/2024/11/img-data-solutions.png)
-- image_03_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_03_commitment.webp)
-
-#### WebKit (Safari)
-
-Missing images:
-- image_05_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_05_commitment.webp)
-- image_04_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_04_commitment.webp)
-- image_03_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_03_commitment.webp)
-
-### https://adenenergies.com/solutions
-
-#### Firefox
-
-Missing images:
-- Pure-optimization.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Pure-optimization.png)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- microgrid%20and%20multisite_result%201.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/microgrid%20and%20multisite_result%201.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- image.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/image.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-work.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-work.png)
-- Point%20Zero.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Point%20Zero.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- Point%20Zero.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Point%20Zero.svg)
-
-#### WebKit (Safari)
-
-Missing images:
-- Pure-optimization.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Pure-optimization.png)
-- microgrid%20and%20multisite_result%201.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/microgrid%20and%20multisite_result%201.webp)
-- image.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/image.webp)
-- img-work.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-work.png)
-
-### https://adenenergies.com/zh
-
-#### Firefox
-
-Missing images:
-- data1.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data1.svg)
-- data2.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data2.svg)
-- data3.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data3.svg)
-- data4.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data4.svg)
-- data1.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data1.svg)
-- data2.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data2.svg)
-- data3.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data3.svg)
-- data4.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/data4.svg)
-- jhonson-controls.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/jhonson-controls.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- SAM_3358-2-1536x882-1.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/SAM_3358-2-1536x882-1.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- Geely.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Geely.png)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- jhonson-controls.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/jhonson-controls.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- SAM_3358-2-1536x882-1.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/SAM_3358-2-1536x882-1.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-
-#### WebKit (Safari)
-
-Missing images:
-- SAM_3358-2-1536x882-1.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/SAM_3358-2-1536x882-1.webp)
-- jhonson-controls.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/jhonson-controls.webp)
-
-### https://adenenergies.com/zh/about
-
-#### Firefox
-
-Missing images:
-- image_03_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_03_commitment.webp)
-- image_05_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_05_commitment.webp)
-- image_04_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_04_commitment.webp)
-- image_01_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_01_commitment.webp)
-- img-data-solutions.png (https://adenenergies.com/wp-content/uploads/2024/11/img-data-solutions.png)
-- image_03_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_03_commitment.webp)
-
-#### WebKit (Safari)
-
-Missing images:
-- image_05_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_05_commitment.webp)
-- image_04_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_04_commitment.webp)
-- image_03_commitment.webp (https://adenenergies.com/wp-content/uploads/2024/11/image_03_commitment.webp)
-
-### https://adenenergies.com/zh/solutions
-
-#### Firefox
-
-Missing images:
-- Pure-optimization.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Pure-optimization.png)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- microgrid%20and%20multisite_result%201.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/microgrid%20and%20multisite_result%201.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- image.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/image.webp)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-work.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-work.png)
-- Point%20Zero.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Point%20Zero.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- img-twenty-percentage.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-twenty-percentage.svg)
-- Point%20Zero.svg (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Point%20Zero.svg)
-
-#### WebKit (Safari)
-
-Missing images:
-- Pure-optimization.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/Pure-optimization.png)
-- microgrid%20and%20multisite_result%201.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/microgrid%20and%20multisite_result%201.webp)
-- image.webp (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/image.webp)
-- img-work.png (https://adenenergies.com/wp-content/themes/newadenenergies/adenenergies/assets/content-img/img-work.png)
-
-### https://adengroup.com/careers
-
-#### Firefox
-
-Missing images:
-- %E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240919163141.jpg (https://adengroup.com/wp-content/uploads/2024/11/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240919163141.jpg)
-- AMX09014.jpg (https://adengroup.com/wp-content/uploads/2024/10/AMX09014.jpg)
-- 1714039037876-1536x864-2.jpg (https://adengroup.com/wp-content/uploads/2024/05/1714039037876-1536x864-2.jpg)
-
-### https://adengroup.com/cn/careers
-
-#### Firefox
-
-Missing images:
-- %E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240919163141.jpg (https://adengroup.com/wp-content/uploads/2024/11/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20240919163141.jpg)
-- AMX09014.jpg (https://adengroup.com/wp-content/uploads/2024/10/AMX09014.jpg)
-- 1714039037876-1536x864-2.jpg (https://adengroup.com/wp-content/uploads/2024/05/1714039037876-1536x864-2.jpg)
+- No alt text (asdf.jpg)
+- No alt text (hjkl.jpg)
 
 
 ## Methodology
