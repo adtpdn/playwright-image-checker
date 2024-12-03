@@ -174,21 +174,28 @@ def main():
         }
 
         for browser_name, (browser_type, result_key) in browser_configs.items():
-            browser = browser_type.launch(
-                args=['--disable-web-security', '--no-sandbox'],
-                ignore_https_errors=True
-            )
-            
-            context = browser.new_context(
-                viewport={'width': 1920, 'height': 1080},
-                user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-            )
-
             try:
-                combined_results[result_key] = run_test(browser_name, context)
-            finally:
-                browser.close()
+                # Launch browser with only necessary arguments
+                browser = browser_type.launch(headless=True)
+                
+                # Create context with all needed options
+                context = browser.new_context(
+                    ignore_https_errors=True,
+                    viewport={'width': 1920, 'height': 1080},
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                )
 
+                combined_results[result_key] = run_test(browser_name, context)
+            except Exception as e:
+                logger.error(f"Error with {browser_name}: {e}")
+                combined_results[result_key] = {
+                    "error": str(e)
+                }
+            finally:
+                if 'browser' in locals():
+                    browser.close()
+
+        # Save results
         with open('results.json', 'w') as f:
             json.dump(combined_results, f, indent=2)
 
