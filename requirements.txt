@@ -2,10 +2,14 @@
 playwright==1.40.0  # For browser automation
 PyGithub==2.1.1    # For GitHub API interactions
 asyncio==3.4.3     # For async operations (might be included in Python standard library)
+aiohttp==3.9.1     # For async HTTP requests
 
-# Optional but recommended for development
+# Testing and Quality Assurance
 pytest==7.4.3          # For testing
 pytest-asyncio==0.21.1 # For async tests
+pytest-playwright>=0.3.0  # For Playwright integration with pytest
+
+# Development Tools
 black==23.11.0        # For code formatting
 flake8==6.1.0         # For linting
 python-dotenv==1.0.0   # For environment variables management
