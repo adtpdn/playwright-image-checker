@@ -4,40 +4,19 @@
 
 This report provides an overview of the image availability status across specified URLs, as checked by our automated Playwright Image Checker tool. The check was performed using Chrome, Firefox, and WebKit (Safari) browsers to ensure cross-browser compatibility.
 
-**Report Generation Date:** 2024-12-03 12:49:10 GMT+8
+**Report Generation Date:** 2024-12-03 12:54:21 GMT+8
 
 ## Status Overview
 
 | URL | Chrome Status | Firefox Status | WebKit Status |
 |-----|---------------|----------------|---------------|
-| https://www.adengroup.com | OK | Error | Error |
-| https://www.adenenergies.com | OK | Error | Error |
-| https://www.nx-park.com | OK | Error | OK |
-| https://the-internet.herokuapp.com/broken_images | Missing Images | Missing Images | Missing Images |
+| https://adengroup.com | OK | Error | Error |
+| https://adenenergies.com | OK | Error | Error |
+| https://nx-park.com | OK | Error | OK |
 
 ## Detailed Findings
 
 Below is a comprehensive breakdown of the results, including specific details on any missing images:
-
-### https://the-internet.herokuapp.com/broken_images
-
-#### Chrome
-
-Missing images:
-- asdf.jpg (https://the-internet.herokuapp.com/asdf.jpg)
-- hjkl.jpg (https://the-internet.herokuapp.com/hjkl.jpg)
-
-#### Firefox
-
-Missing images:
-- asdf.jpg (https://the-internet.herokuapp.com/asdf.jpg)
-- hjkl.jpg (https://the-internet.herokuapp.com/hjkl.jpg)
-
-#### WebKit (Safari)
-
-Missing images:
-- asdf.jpg (https://the-internet.herokuapp.com/asdf.jpg)
-- hjkl.jpg (https://the-internet.herokuapp.com/hjkl.jpg)
 
 
 ## Methodology
