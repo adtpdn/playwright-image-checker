@@ -1,3 +1,15 @@
-selenium
-webdriver_manager
-PyGithub
+# Core dependencies
+playwright==1.40.0  # For browser automation
+PyGithub==2.1.1    # For GitHub API interactions
+asyncio==3.4.3     # For async operations (might be included in Python standard library)
+
+# Optional but recommended for development
+pytest==7.4.3          # For testing
+pytest-asyncio==0.21.1 # For async tests
+black==23.11.0        # For code formatting
+flake8==6.1.0         # For linting
+python-dotenv==1.0.0   # For environment variables management
+
+# Documentation
+mkdocs==1.5.3         # For documentation generation (optional)
+mkdocs-material==9.4.14  # Theme for documentation (optional)
