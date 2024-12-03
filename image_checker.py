@@ -3,6 +3,7 @@ import asyncio
 from datetime import datetime
 from playwright.async_api import async_playwright
 from typing import List, Dict
+import aiohttp
 
 urls_to_check = [
     'https://adenenergies.com',
@@ -28,21 +29,56 @@ urls_to_check = [
     'https://nx-park.com'
 ]
 
+async def verify_image_url(session, img_url) -> bool:
+    try:
+        async with session.head(img_url) as response:
+            return response.status == 200
+    except:
+        return False
+
 async def check_images_on_page(page, url) -> List[Dict]:
     try:
-        await page.goto(url, wait_until='networkidle', timeout=60000)  # Increased timeout to 60 seconds
+        await page.goto(url, wait_until='networkidle', timeout=60000)
         
-        # Execute JavaScript to check for broken images
+        # Scroll through the page to trigger lazy loading
+        await page.evaluate('''
+            async () => {
+                await new Promise((resolve) => {
+                    let totalHeight = 0;
+                    const distance = 100;
+                    const timer = setInterval(() => {
+                        const scrollHeight = document.body.scrollHeight;
+                        window.scrollBy(0, distance);
+                        totalHeight += distance;
+                        
+                        if(totalHeight >= scrollHeight){
+                            clearInterval(timer);
+                            resolve();
+                        }
+                    }, 100);
+                });
+            }
+        ''')
+        
+        # Wait a bit for lazy loaded images
+        await page.wait_for_timeout(2000)
+        
+        # Get all images including those that might be lazy loaded
         broken_images = await page.evaluate('''
             () => {
-                const images = document.getElementsByTagName('img');
+                const images = Array.from(document.getElementsByTagName('img'));
                 const broken = [];
                 
                 for (let img of images) {
-                    if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
+                    // Check both src and data-src attributes
+                    const imgSrc = img.src || img.dataset.src;
+                    if (!imgSrc || !img.complete || !img.naturalWidth || !img.naturalHeight) {
                         broken.push({
-                            name: img.src.split('/').pop(),
-                            url: img.src
+                            name: imgSrc ? imgSrc.split('/').pop() : 'unknown',
+                            url: imgSrc || 'no-src',
+                            reason: !imgSrc ? 'no-src' : 
+                                    !img.complete ? 'incomplete' : 
+                                    'zero-dimension'
                         });
                     }
                 }
@@ -50,7 +86,19 @@ async def check_images_on_page(page, url) -> List[Dict]:
             }
         ''')
         
-        return broken_images
+        # Recheck potentially broken images with direct HTTP request
+        async with aiohttp.ClientSession() as session:
+            verified_broken = []
+            for img in broken_images:
+                if img['url'] != 'no-src':
+                    is_accessible = await verify_image_url(session, img['url'])
+                    if not is_accessible:
+                        verified_broken.append(img)
+                else:
+                    verified_broken.append(img)
+                    
+        return verified_broken
+        
     except Exception as e:
         print(f"Error during page check: {str(e)}")
         raise
@@ -73,7 +121,7 @@ async def run_test(browser_type, context):
             if missing_images:
                 print(f"Missing images on {url}:")
                 for img in missing_images:
-                    print(f"- {img['name']} ({img['url']})")
+                    print(f"- {img['name']} ({img['url']}) - Reason: {img['reason']}")
             else:
                 print(f"No missing images found on {url}")
             print('---')
@@ -94,7 +142,6 @@ async def main():
     async with async_playwright() as p:
         results = {}
         
-        # Context options
         context_options = {
             'ignore_https_errors': True,
             'viewport': {'width': 1920, 'height': 1080}
