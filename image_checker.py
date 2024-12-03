@@ -9,10 +9,27 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 urls_to_check = [
-    'https://www.adengroup.com',
-    'https://www.adenenergies.com',
-    'https://www.nx-park.com',
-    'https://the-internet.herokuapp.com/broken_images'
+    'https://adenenergies.com',
+    'https://adenenergies.com/about',
+    'https://adenenergies.com/contact',
+    'https://adenenergies.com/media',
+    'https://adenenergies.com/solutions',
+    'https://adenenergies.com/zh',
+    'https://adenenergies.com/zh/about',
+    'https://adenenergies.com/zh/contact',
+    'https://adenenergies.com/zh/media',
+    'https://adenenergies.com/zh/solutions',
+    'https://adengroup.com',
+    'https://adengroup.com/about-us',
+    'https://adengroup.com/careers',
+    'https://adengroup.com/contact',
+    'https://adengroup.com/media',
+    'https://adengroup.com/cn',
+    'https://adengroup.com/cn/about-us',
+    'https://adengroup.com/cn/careers',
+    'https://adengroup.com/cn/contact',
+    'https://adengroup.com/cn/media',
+    'https://nx-park.com'
 ]
 
 def verify_image_url(url, base_url):
