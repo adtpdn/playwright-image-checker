@@ -5,10 +5,10 @@ from playwright.async_api import async_playwright
 from typing import List, Dict
 
 urls_to_check = [
-    'https://www.adengroup.com',
-    'https://www.adenenergies.com',
-    'https://www.nx-park.com',
-    'https://the-internet.herokuapp.com/broken_images'
+    'https://adengroup.com',
+    'https://adenenergies.com',
+    'https://nx-park.com'
+    # 'https://the-internet.herokuapp.com/broken_images'
 ]
 
 async def check_images_on_page(page, url) -> List[Dict]:
