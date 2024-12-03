@@ -12,27 +12,31 @@ urls_to_check = [
 ]
 
 async def check_images_on_page(page, url) -> List[Dict]:
-    await page.goto(url, wait_until='networkidle')
-    
-    # Execute JavaScript to check for broken images
-    broken_images = await page.evaluate('''
-        () => {
-            const images = document.getElementsByTagName('img');
-            const broken = [];
-            
-            for (let img of images) {
-                if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
-                    broken.push({
-                        name: img.src.split('/').pop(),
-                        url: img.src
-                    });
+    try:
+        await page.goto(url, wait_until='networkidle', timeout=60000)  # Increased timeout to 60 seconds
+        
+        # Execute JavaScript to check for broken images
+        broken_images = await page.evaluate('''
+            () => {
+                const images = document.getElementsByTagName('img');
+                const broken = [];
+                
+                for (let img of images) {
+                    if (!img.complete || !img.naturalWidth || !img.naturalHeight) {
+                        broken.push({
+                            name: img.src.split('/').pop(),
+                            url: img.src
+                        });
+                    }
                 }
+                return broken;
             }
-            return broken;
-        }
-    ''')
-    
-    return broken_images
+        ''')
+        
+        return broken_images
+    except Exception as e:
+        print(f"Error during page check: {str(e)}")
+        raise
 
 async def run_test(browser_type, context):
     results = {}
@@ -73,21 +77,35 @@ async def main():
     async with async_playwright() as p:
         results = {}
         
+        # Common browser launch options
+        browser_launch_options = {
+            'ignore_https_errors': True,  # Ignore SSL/TLS certificate errors
+        }
+
         # Test with Chromium
-        browser = await p.chromium.launch()
-        context = await browser.new_context()
+        browser = await p.chromium.launch(**browser_launch_options)
+        context = await browser.new_context(
+            ignore_https_errors=True,
+            viewport={'width': 1920, 'height': 1080}
+        )
         results['chrome'] = await run_test('chrome', context)
         await browser.close()
         
         # Test with Firefox
-        browser = await p.firefox.launch()
-        context = await browser.new_context()
+        browser = await p.firefox.launch(**browser_launch_options)
+        context = await browser.new_context(
+            ignore_https_errors=True,
+            viewport={'width': 1920, 'height': 1080}
+        )
         results['firefox'] = await run_test('firefox', context)
         await browser.close()
         
         # Test with WebKit (Safari)
-        browser = await p.webkit.launch()
-        context = await browser.new_context()
+        browser = await p.webkit.launch(**browser_launch_options)
+        context = await browser.new_context(
+            ignore_https_errors=True,
+            viewport={'width': 1920, 'height': 1080}
+        )
         results['safari'] = await run_test('safari', context)
         await browser.close()
         
