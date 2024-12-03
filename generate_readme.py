@@ -12,20 +12,21 @@ def generate_readme(results):
 
 ## Executive Summary
 
-This report provides an overview of the image availability status across specified URLs, as checked by our automated Playwright Image Checker tool. The check was performed using both Chrome and Firefox browsers to ensure cross-browser compatibility.
+This report provides an overview of the image availability status across specified URLs, as checked by our automated Playwright Image Checker tool. The check was performed using Chrome, Firefox, and WebKit (Safari) browsers to ensure cross-browser compatibility.
 
 **Report Generation Date:** {formatted_timestamp}
 
 ## Status Overview
 
-| URL | Chrome Status | Firefox Status |
-|-----|---------------|----------------|
+| URL | Chrome Status | Firefox Status | WebKit Status |
+|-----|---------------|----------------|---------------|
 """
 
     for url in results['chrome']:
         chrome_status = results['chrome'][url]['status']
         firefox_status = results['firefox'][url]['status']
-        readme += f"| {url} | {chrome_status} | {firefox_status} |\n"
+        safari_status = results['safari'][url]['status']
+        readme += f"| {url} | {chrome_status} | {firefox_status} | {safari_status} |\n"
 
     readme += """
 ## Detailed Findings
@@ -37,8 +38,9 @@ Below is a comprehensive breakdown of the results, including specific details on
     for url in results['chrome']:
         chrome_data = results['chrome'][url]
         firefox_data = results['firefox'][url]
+        safari_data = results['safari'][url]
         
-        if chrome_data['status'] == 'Missing Images' or firefox_data['status'] == 'Missing Images':
+        if chrome_data['status'] == 'Missing Images' or firefox_data['status'] == 'Missing Images' or safari_data['status'] == 'Missing Images':
             readme += f"### {url}\n\n"
             
             if chrome_data['status'] == 'Missing Images':
@@ -53,10 +55,16 @@ Below is a comprehensive breakdown of the results, including specific details on
                     readme += f"- {img['name']} ({img['url']})\n"
                 readme += "\n"
 
+            if safari_data['status'] == 'Missing Images':
+                readme += "#### WebKit (Safari)\n\nMissing images:\n"
+                for img in safari_data['missing_images']:
+                    readme += f"- {img['name']} ({img['url']})\n"
+                readme += "\n"
+
     readme += """
 ## Methodology
 
-Our Playwright Image Checker utilizes WebDriver to load each specified URL in both Chrome and Firefox browsers. It then analyzes all image elements on the page to identify any that fail to load properly.
+Our Playwright Image Checker utilizes Playwright to load each specified URL in Chrome, Firefox, and WebKit (Safari) browsers. It then analyzes all image elements on the page to identify any that fail to load properly.
 
 ## Next Steps
 

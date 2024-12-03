@@ -19,7 +19,7 @@ def generate_html(results):
                 line-height: 1.6;
             }}
             .container {{
-                max-width: 800px;
+                max-width: 1000px;
                 margin: 0 auto;
             }}
             h1, h2 {{
@@ -54,7 +54,12 @@ def generate_html(results):
             <p>Report generated on: {timestamp}</p>
             <h2>Summary</h2>
             <table>
-                <tr><th>URL</th><th>Chrome Status</th><th>Firefox Status</th></tr>
+                <tr>
+                    <th>URL</th>
+                    <th>Chrome Status</th>
+                    <th>Firefox Status</th>
+                    <th>WebKit Status</th>
+                </tr>
                 {table_rows}
             </table>
             <h2>Detailed Error Report</h2>
@@ -71,18 +76,33 @@ def generate_html(results):
     for url, data in results['chrome'].items():
         chrome_status = data['status']
         firefox_status = results['firefox'][url]['status']
-        rows += f"<tr><td>{url}</td><td class='{chrome_status.lower().replace(' ', '-')}'>{chrome_status}</td><td class='{firefox_status.lower().replace(' ', '-')}'>{firefox_status}</td></tr>"
+        webkit_status = results['safari'][url]['status']
         
-        if chrome_status == 'Missing Images' or firefox_status == 'Missing Images':
+        rows += f"""<tr>
+            <td>{url}</td>
+            <td class='{chrome_status.lower().replace(' ', '-')}'>{chrome_status}</td>
+            <td class='{firefox_status.lower().replace(' ', '-')}'>{firefox_status}</td>
+            <td class='{webkit_status.lower().replace(' ', '-')}'>{webkit_status}</td>
+        </tr>"""
+        
+        if chrome_status == 'Missing Images' or firefox_status == 'Missing Images' or webkit_status == 'Missing Images':
             error_details += f"<h3>{url}</h3>"
+            
             if chrome_status == 'Missing Images':
                 error_details += "<h4>Chrome:</h4><ul>"
                 for img in data['missing_images']:
                     error_details += f"<li>{img['name']} ({img['url']})</li>"
                 error_details += "</ul>"
+                
             if firefox_status == 'Missing Images':
                 error_details += "<h4>Firefox:</h4><ul>"
                 for img in results['firefox'][url]['missing_images']:
+                    error_details += f"<li>{img['name']} ({img['url']})</li>"
+                error_details += "</ul>"
+                
+            if webkit_status == 'Missing Images':
+                error_details += "<h4>WebKit (Safari):</h4><ul>"
+                for img in results['safari'][url]['missing_images']:
                     error_details += f"<li>{img['name']} ({img['url']})</li>"
                 error_details += "</ul>"
 
