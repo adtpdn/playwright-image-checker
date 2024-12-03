@@ -5,10 +5,27 @@ from playwright.async_api import async_playwright
 from typing import List, Dict
 
 urls_to_check = [
-    'https://adengroup.com',
     'https://adenenergies.com',
+    'https://adenenergies.com/about',
+    'https://adenenergies.com/contact',
+    'https://adenenergies.com/media',
+    'https://adenenergies.com/solutions',
+    'https://adenenergies.com/zh',
+    'https://adenenergies.com/zh/about',
+    'https://adenenergies.com/zh/contact',
+    'https://adenenergies.com/zh/media',
+    'https://adenenergies.com/zh/solutions',
+    'https://adengroup.com',
+    'https://adengroup.com/about-us',
+    'https://adengroup.com/careers',
+    'https://adengroup.com/contact',
+    'https://adengroup.com/media',
+    'https://adengroup.com/cn',
+    'https://adengroup.com/cn/about-us',
+    'https://adengroup.com/cn/careers',
+    'https://adengroup.com/cn/contact',
+    'https://adengroup.com/cn/media',
     'https://nx-park.com'
-    # 'https://the-internet.herokuapp.com/broken_images'
 ]
 
 async def check_images_on_page(page, url) -> List[Dict]:
@@ -77,35 +94,27 @@ async def main():
     async with async_playwright() as p:
         results = {}
         
-        # Common browser launch options
-        browser_launch_options = {
-            'ignore_https_errors': True,  # Ignore SSL/TLS certificate errors
+        # Context options
+        context_options = {
+            'ignore_https_errors': True,
+            'viewport': {'width': 1920, 'height': 1080}
         }
 
         # Test with Chromium
-        browser = await p.chromium.launch(**browser_launch_options)
-        context = await browser.new_context(
-            ignore_https_errors=True,
-            viewport={'width': 1920, 'height': 1080}
-        )
+        browser = await p.chromium.launch()
+        context = await browser.new_context(**context_options)
         results['chrome'] = await run_test('chrome', context)
         await browser.close()
         
         # Test with Firefox
-        browser = await p.firefox.launch(**browser_launch_options)
-        context = await browser.new_context(
-            ignore_https_errors=True,
-            viewport={'width': 1920, 'height': 1080}
-        )
+        browser = await p.firefox.launch()
+        context = await browser.new_context(**context_options)
         results['firefox'] = await run_test('firefox', context)
         await browser.close()
         
         # Test with WebKit (Safari)
-        browser = await p.webkit.launch(**browser_launch_options)
-        context = await browser.new_context(
-            ignore_https_errors=True,
-            viewport={'width': 1920, 'height': 1080}
-        )
+        browser = await p.webkit.launch()
+        context = await browser.new_context(**context_options)
         results['safari'] = await run_test('safari', context)
         await browser.close()
         
