@@ -9,6 +9,7 @@ def generate_html(results):
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Image Check Status Report</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
         <style>
             body {{
                 font-family: 'Courier New', Courier, monospace;
@@ -46,6 +47,12 @@ def generate_html(results):
                 border-radius: 5px;
                 margin-top: 20px;
             }}
+            .status-icon {{
+                margin-right: 8px;
+            }}
+            .browser-icon {{
+                margin-right: 5px;
+            }}
         </style>
     </head>
     <body>
@@ -78,30 +85,45 @@ def generate_html(results):
         firefox_status = results['firefox'][url]['status']
         webkit_status = results['safari'][url]['status']
         
+        def get_status_html(status, browser):
+            icon_class = "fa-check ok" if status == 'OK' else "fa-xmark error"
+            browser_icons = {
+                'chrome': '<i class="fab fa-chrome browser-icon"></i>',
+                'firefox': '<i class="fab fa-firefox browser-icon"></i>',
+                'webkit': '<i class="fab fa-safari browser-icon"></i>'
+            }
+            return f"""
+                <td class='{status.lower().replace(' ', '-')}'>
+                    {browser_icons[browser]}
+                    <i class="fa-solid {icon_class} status-icon"></i>
+                    {status}
+                </td>
+            """
+        
         rows += f"""<tr>
             <td>{url}</td>
-            <td class='{chrome_status.lower().replace(' ', '-')}'>{chrome_status}</td>
-            <td class='{firefox_status.lower().replace(' ', '-')}'>{firefox_status}</td>
-            <td class='{webkit_status.lower().replace(' ', '-')}'>{webkit_status}</td>
+            {get_status_html(chrome_status, 'chrome')}
+            {get_status_html(firefox_status, 'firefox')}
+            {get_status_html(webkit_status, 'webkit')}
         </tr>"""
         
         if chrome_status == 'Missing Images' or firefox_status == 'Missing Images' or webkit_status == 'Missing Images':
             error_details += f"<h3>{url}</h3>"
             
             if chrome_status == 'Missing Images':
-                error_details += "<h4>Chrome:</h4><ul>"
+                error_details += '<h4><i class="fab fa-chrome"></i> Chrome:</h4><ul>'
                 for img in data['missing_images']:
                     error_details += f"<li>{img['name']} ({img['url']})</li>"
                 error_details += "</ul>"
                 
             if firefox_status == 'Missing Images':
-                error_details += "<h4>Firefox:</h4><ul>"
+                error_details += '<h4><i class="fab fa-firefox"></i> Firefox:</h4><ul>'
                 for img in results['firefox'][url]['missing_images']:
                     error_details += f"<li>{img['name']} ({img['url']})</li>"
                 error_details += "</ul>"
                 
             if webkit_status == 'Missing Images':
-                error_details += "<h4>WebKit (Safari):</h4><ul>"
+                error_details += '<h4><i class="fab fa-safari"></i> WebKit (Safari):</h4><ul>'
                 for img in results['safari'][url]['missing_images']:
                     error_details += f"<li>{img['name']} ({img['url']})</li>"
                 error_details += "</ul>"
