@@ -2,18 +2,18 @@
 
 ## Executive Summary
 
-This report provides an overview of the image availability status across specified URLs, as checked by our automated Playwright Image Checker tool. The check was performed using both Chrome and Firefox browsers to ensure cross-browser compatibility.
+This report provides an overview of the image availability status across specified URLs, as checked by our automated Playwright Image Checker tool. The check was performed using Chrome, Firefox, and WebKit (Safari) browsers to ensure cross-browser compatibility.
 
-**Report Generation Date:** 2024-12-03 12:21:32 GMT+8
+**Report Generation Date:** 2024-12-03 12:49:10 GMT+8
 
 ## Status Overview
 
-| URL | Chrome Status | Firefox Status |
-|-----|---------------|----------------|
-| https://www.adengroup.com | OK | Error |
-| https://www.adenenergies.com | OK | Error |
-| https://www.nx-park.com | OK | Error |
-| https://the-internet.herokuapp.com/broken_images | Missing Images | Missing Images |
+| URL | Chrome Status | Firefox Status | WebKit Status |
+|-----|---------------|----------------|---------------|
+| https://www.adengroup.com | OK | Error | Error |
+| https://www.adenenergies.com | OK | Error | Error |
+| https://www.nx-park.com | OK | Error | OK |
+| https://the-internet.herokuapp.com/broken_images | Missing Images | Missing Images | Missing Images |
 
 ## Detailed Findings
 
@@ -33,10 +33,16 @@ Missing images:
 - asdf.jpg (https://the-internet.herokuapp.com/asdf.jpg)
 - hjkl.jpg (https://the-internet.herokuapp.com/hjkl.jpg)
 
+#### WebKit (Safari)
+
+Missing images:
+- asdf.jpg (https://the-internet.herokuapp.com/asdf.jpg)
+- hjkl.jpg (https://the-internet.herokuapp.com/hjkl.jpg)
+
 
 ## Methodology
 
-Our Playwright Image Checker utilizes WebDriver to load each specified URL in both Chrome and Firefox browsers. It then analyzes all image elements on the page to identify any that fail to load properly.
+Our Playwright Image Checker utilizes Playwright to load each specified URL in Chrome, Firefox, and WebKit (Safari) browsers. It then analyzes all image elements on the page to identify any that fail to load properly.
 
 ## Next Steps
 
