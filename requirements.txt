@@ -3,7 +3,7 @@ playwright==1.40.0  # For browser automation
 PyGithub==2.1.1    # For GitHub API interactions
 asyncio==3.4.3     # For async operations (might be included in Python standard library)
 aiohttp==3.9.1     # For async HTTP requests
-greenlet<3.0.0
+greenlet==3.0.1
 
 # Testing and Quality Assurance
 pytest==7.4.3          # For testing
