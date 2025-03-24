@@ -7,7 +7,7 @@ on:
 
 jobs:
   check-images:
-    runs-on: ubuntu-latest  # Can use Ubuntu as Playwright handles all browsers
+    runs-on: ubuntu-22.04  # Ubuntu Jammy 22.04
     steps:
     - uses: actions/checkout@v3
 
